@@ -24,6 +24,182 @@ body {
   border: none;
   cursor: pointer;
   font-size: 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+.container #btn1 {
+  background-color: black;
+  color: white;
+}
+.container #btn1:hover {
+  transform: translate(-8px, -8px);
+  box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.container #btn2 {
+  position: relative;
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  z-index: 1;
+}
+.container #btn2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+.container #btn2:hover {
+  transform: translate(-6px, -6px);
+  background-color: black;
+  color: black;
+}
+.container #btn2:hover::after {
+  opacity: 1;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  transform: translate(-6px, -6px);
+}
+.container #btn3 {
+  background-color: #2ecc71;
+  color: white;
+  overflow: hidden;
+}
+.container #btn3::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -100%;
+  width: 10%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: rotate(45deg);
+  transition: left 0.5s ease;
+}
+.container #btn3:hover::before {
+  left: 150%;
+}
+.container #shape1 {
+  width: 150px;
+  height: 150px;
+  background-color: lightgray;
+  border-radius: 10px;
+  transition: all 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.container #shape1::after {
+  content: "Hello!";
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.container #shape1:hover {
+  background-color: yellow;
+}
+.container #shape1:hover::after {
+  opacity: 1;
+}
+.container #figure1 {
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  width: 250px;
+  display: inline-block;
+  overflow: visible;
+}
+.container #figure1 img {
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.container #figure1:hover img {
+  filter: grayscale(100%);
+}
+.container #figure1 figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: pink;
+  color: black;
+  font-size: 14px;
+  padding: 15px;
+  margin: 0;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+.container #figure1:hover figcaption {
+  transform: translateY(90%);
+}
+@keyframes moveAround {
+  0% {
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
+    border-radius: 0;
+    background-color: red;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 50px);
+    clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%);
+    border-radius: 50%;
+    background-color: green;
+  }
+  50% {
+    top: calc(100% - 50px);
+    left: calc(100% - 50px);
+    clip-path: polygon(50% 0%, 75% 50%, 100% 100%, 75% 100%, 50% 100%, 25% 100%, 0% 100%, 25% 50%);
+    border-radius: 0;
+    background-color: yellow;
+  }
+  75% {
+    top: calc(100% - 50px);
+    left: 0;
+    clip-path: polygon(50% 0%, 100% 38%, 100% 38%, 82% 100%, 50% 100%, 18% 100%, 0% 38%, 0% 38%);
+    border-radius: 0;
+    background-color: orange;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    clip-path: polygon(0% 0%, 50% 0%, 100% 0%, 100% 50%, 100% 100%, 50% 100%, 0% 100%, 0% 50%);
+    border-radius: 0;
+    background-color: red;
+  }
+}
+.container #shape2 {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  animation: moveAround 8s ease-in-out infinite;
+  transition: all 0.4s ease;
+}
+.container #shape2:hover {
+  transform: scale(1.2);
+  animation-play-state: paused;
 }
 
 /*# sourceMappingURL=style.css.map */
